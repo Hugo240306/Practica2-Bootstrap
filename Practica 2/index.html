@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Inicio · Nodo Norte</title>
+  <meta name="description" content="Nodo Norte: comunidad tecnológica de A Coruña. Charlas y talleres sobre software libre.">
+  <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-nn sticky-top" aria-label="Navegación principal">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+          <img src="img/logo.svg" alt="" class="logo-nn" width="32" height="32">
+          NODO NORTE
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
+                aria-controls="menu" aria-expanded="false" aria-label="Abrir menú de navegación">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menu">
+          <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+            <li class="nav-item"><a class="nav-link active" href="index.html" aria-current="page">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link" href="eventos.html">Eventos</a></li>
+            <li class="nav-item"><a class="nav-link" href="unete.html">Únete</a></li>
+            <li class="nav-item ms-lg-2 mt-2 mt-lg-0"><a class="btn btn-nn" href="eventos.html#inscripcion">Apúntate</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="contenido">
+    <section class="hero" aria-labelledby="titulo-hero">
+      <div class="container">
+        <div class="row align-items-center gy-4">
+          <div class="col-lg-7">
+            <p class="eyebrow mb-2">Comunidad tecnológica · A Coruña</p>
+            <h1 id="titulo-hero">Menos ruido,<br>más comunidad.</h1>
+            <p class="lead text-muted-nn mt-3">Charlas y talleres sobre software libre y tecnología. Si es tu primera vez, cuéntanoslo y te recibimos con calma.</p>
+            <div class="d-flex flex-wrap gap-2 mt-4">
+              <a class="btn btn-nn" href="eventos.html#inscripcion">Apúntate al próximo evento</a>
+              <a class="btn btn-nn-outline" href="unete.html">Hazte socio</a>
+            </div>
+          </div>
+          <div class="col-lg-5 text-center">
+            <img class="hero-logo" src="img/logo.svg" alt="Logotipo de Nodo Norte: un nodo central conectado con seis puntos" width="160" height="160">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccion seccion-alt" aria-labelledby="titulo-proximo">
+      <div class="container">
+        <h2 id="titulo-proximo" class="mb-4">Próximo evento</h2>
+        <div class="card-nn">
+          <div class="card-body">
+            <div class="row gy-4 align-items-center">
+              <div class="col-lg-7">
+                <div class="d-flex gap-2 mb-2">
+                  <span class="badge badge-nn activo">Charla</span>
+                  <span class="badge badge-nn">Nivel 1</span>
+                </div>
+                <h3 class="h4">Introducción a Linux y software libre</h3>
+                <p class="text-muted-nn mb-3">martes, 1 de diciembre · 19:00 · Sala por confirmar, A Coruña</p>
+                <div class="plazas mb-1" role="img" aria-label="18 plazas libres de 40"><span style="width:55%"></span></div>
+                <p class="small text-muted-nn mb-0">18 plazas libres de 40</p>
+              </div>
+              <div class="col-lg-5">
+                <div id="cuenta" class="cuenta mb-3" data-fecha="2026-12-01T19:00:00+01:00" role="timer" aria-label="Cuenta atrás hasta el próximo evento">
+                  <div><strong data-d>0</strong><small>días</small></div>
+                  <div><strong data-h>0</strong><small>horas</small></div>
+                  <div><strong data-m>0</strong><small>min</small></div>
+                </div>
+                <a class="btn btn-nn-verde" href="eventos.html#inscripcion">Reservar plaza</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccion" aria-labelledby="titulo-que-es">
+      <div class="container">
+        <div class="row gy-4 align-items-center">
+          <div class="col-lg-6">
+            <h2 id="titulo-que-es">¿Qué es Nodo Norte?</h2>
+            <p class="text-muted-nn">Nodo Norte es una comunidad tecnológica local que acerca la tecnología y el software libre mediante charlas, talleres y encuentros. Nos juntamos normalmente el primer martes de cada mes, con eventos adicionales.</p>
+            <p class="text-muted-nn">Hay actividades de iniciación y de otros niveles, para estudiantes de FP y universidad, perfiles junior y personas curiosas.</p>
+            <a class="btn btn-nn-outline" href="unete.html">Cómo hacerse socio</a>
+          </div>
+          <div class="col-lg-6">
+            <div class="row g-3">
+              <div class="col-6"><div class="placeholder-img">Foto: encuentro con luz natural</div></div>
+              <div class="col-6"><div class="placeholder-img">Foto: portátiles y manos</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer-nn">
+    <div class="container">
+      <div class="row gy-4">
+        <div class="col-md-5">
+          <p class="d-flex align-items-center gap-2 fw-bold mb-2">
+            <img src="img/logo.svg" alt="" width="28" height="28"> NODO NORTE
+          </p>
+          <p class="text-footer mb-0">Comunidad tecnológica de A Coruña. Software libre, charlas y talleres, con calma.</p>
+        </div>
+        <div class="col-6 col-md-3">
+          <h2 class="h6 text-uppercase" style="letter-spacing:.1em">Web</h2>
+          <ul class="list-unstyled mb-0">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="eventos.html">Eventos</a></li>
+            <li><a href="unete.html">Únete</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-md-4">
+          <h2 class="h6 text-uppercase" style="letter-spacing:.1em">Contacto y redes</h2>
+          <p class="mb-2"><a href="mailto:hola@nodonorte.example">hola@nodonorte.example</a></p>
+          <div class="redes d-flex gap-2" aria-label="Redes sociales">
+            <a href="#" aria-label="Mastodon">Ma</a>
+            <a href="#" aria-label="Bluesky">Bs</a>
+            <a href="#" aria-label="Instagram">Ig</a>
+          </div>
+        </div>
+      </div>
+      <hr class="my-4">
+      <div class="d-flex flex-column flex-sm-row justify-content-between gap-2 small text-footer">
+        <span>&copy; <span data-year>2026</span> Nodo Norte · Proyecto académico</span>
+        <span><a href="#">Aviso legal</a> · <a href="#">Privacidad</a> · <a href="#">Contacto</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
