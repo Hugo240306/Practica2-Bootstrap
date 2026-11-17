@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nodo Norte | Comunidad de software libre en A Coruña</title>
+  <meta name="description" content="Charlas y talleres de software libre y tecnología en A Coruña, el primer martes de cada mes.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- logo (se reutiliza con use) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <g id="logo">
+        <polygon fill="currentColor" points="50,5 88,27 88,39 56,20.5 56,37 50,33.5"/>
+        <polygon fill="currentColor" transform="rotate(60 50 50)" points="50,5 88,27 88,39 56,20.5 56,37 50,33.5"/>
+        <polygon fill="currentColor" transform="rotate(120 50 50)" points="50,5 88,27 88,39 56,20.5 56,37 50,33.5"/>
+        <polygon fill="currentColor" transform="rotate(180 50 50)" points="50,5 88,27 88,39 56,20.5 56,37 50,33.5"/>
+        <polygon fill="currentColor" transform="rotate(240 50 50)" points="50,5 88,27 88,39 56,20.5 56,37 50,33.5"/>
+        <polygon fill="currentColor" transform="rotate(300 50 50)" points="50,5 88,27 88,39 56,20.5 56,37 50,33.5"/>
+      </g>
+    </defs>
+  </svg>
+
+  <!-- CABECERA -->
+  <header class="cabecera">
+    <div class="contenedor barra">
+      <a class="marca" href="#inicio">
+        <svg viewBox="0 0 100 100" aria-hidden="true"><use href="#logo"/></svg>
+        NODO NORTE
+      </a>
+      <nav class="menu">
+        <a href="#socios">Socios</a>
+        <a class="boton boton-pequeno" href="#socios">Hazte socio</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- INICIO -->
+    <section class="hero" id="inicio">
+      <div class="contenedor">
+        <svg class="logo-grande" viewBox="0 0 100 100" role="img" aria-label="Logo de Nodo Norte"><use href="#logo"/></svg>
+        <h1>NODO NORTE</h1>
+        <p class="lema">Software libre, hecho entre vecinas y vecinos.</p>
+        <p class="subtitulo">Charlas y talleres en A Coruña. Aprende, comparte, repite el mes que viene.</p>
+        <div class="botones">
+          <a class="boton" href="#socios">Hazte socio</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="cinta">
+      SOFTWARE LIBRE &nbsp;·&nbsp; A CORUÑA &nbsp;·&nbsp; CHARLAS Y TALLERES &nbsp;·&nbsp; PRIMER MARTES DE CADA MES &nbsp;·&nbsp; COMUNIDAD ABIERTA
+    </div>
+
+    <!-- SOCIOS -->
+    <section class="seccion" id="socios">
+      <div class="contenedor dos-columnas">
+        <div>
+          <h2>Hazte socio de Nodo Norte</h2>
+          <p class="precio">10 € <span>al año, voluntarios</span></p>
+          <ul class="lista">
+            <li>Plaza asegurada en todos los talleres</li>
+            <li>Acumulas puntos por ser socio</li>
+            <li>Ayudas a que la comunidad siga viva y libre</li>
+          </ul>
+          <p class="gris">Los puntos suben cada vez que vienes, propones una charla o echas una mano.</p>
+        </div>
+        <form class="tarjeta formulario" action="#" method="post">
+          <p class="gris">Pagas por transferencia o PayPal. Te escribimos con los datos.</p>
+
+          <label for="nombre2">Nombre</label>
+          <input type="text" id="nombre2" name="nombre" required>
+
+          <label for="apellidos">Apellidos</label>
+          <input type="text" id="apellidos" name="apellidos" required>
+
+          <label for="correo2">Correo</label>
+          <input type="email" id="correo2" name="correo" required>
+
+          <label for="edad">Edad</label>
+          <input type="number" id="edad" name="edad" min="1" max="120" required>
+
+          <label for="nacimiento">Fecha de nacimiento</label>
+          <input type="date" id="nacimiento" name="nacimiento" required>
+
+          <label for="paypal">Correo de PayPal (opcional)</label>
+          <input type="email" id="paypal" name="paypal">
+
+          <button class="boton" type="submit">Quiero ser socio</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- PIE -->
+  <footer class="pie">
+    <div class="contenedor">
+      <a class="marca" href="#inicio">
+        <svg viewBox="0 0 100 100" aria-hidden="true"><use href="#logo"/></svg>
+        NODO NORTE
+      </a>
+      <p class="gris">Comunidad de tecnología y software libre de A Coruña. Cercanía, comodidad y ganas de aprender juntos.</p>
+      <div class="redes">
+        <a href="#">Mastodon</a>
+        <a href="#">Bluesky</a>
+        <a href="#">Instagram</a>
+        <a href="mailto:hola@nodonorte.example">hola@nodonorte.example</a>
+      </div>
+
+      <form class="newsletter" action="#" method="post">
+        <label for="news">No te pierdas el próximo martes: un correo al mes con fecha, lugar y nivel. Nada más.</label>
+        <div class="fila-news">
+          <input type="email" id="news" name="correo" placeholder="tu@correo.es" required>
+          <button class="boton" type="submit">Suscribirme a la newsletter</button>
+        </div>
+      </form>
+    </div>
+  </footer>
+
+</body>
+</html>
