@@ -1,0 +1,611 @@
+/* ==========================================================
+   Nodo Norte · estilos propios (sobre Bootstrap 5.3 por CDN)
+   Solo cubre lo que Bootstrap no trae: la paleta, la tipografía
+   y los detalles de la guía de estilos (docs/guia-estilos.pdf).
+   El posicionamiento (rejilla, flex, márgenes) lo hace Bootstrap.
+   ========================================================== */
+
+
+/* ---------- 1. Variables de la guía de estilos ---------- */
+
+/* Paleta de la guía y sobrescritura de las variables de Bootstrap
+   para que sus componentes usen nuestros colores y la fuente Inter */
+:root {
+  --nn-papel: #FAFAF8;        /* fondo general */
+  --nn-calido: #F2F1ED;       /* secciones alternas */
+  --nn-linea: #E4E2DC;        /* bordes de 1 px y separadores */
+  --nn-gris: #66666E;         /* texto secundario */
+  --nn-tinta: #17171A;        /* texto principal, botón principal, footer */
+  --nn-verde: #1F6F5C;        /* único acento: enlaces, activo, acciones */
+  --nn-verde-oscuro: #17564A; /* hover del verde */
+  --nn-verde-suave: #E8F2EF;  /* fondo de estados activos */
+
+  --bs-body-font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --bs-body-bg: var(--nn-papel);
+  --bs-body-color: var(--nn-tinta);
+  --bs-body-font-size: 1.0625rem; /* 17 px, texto base de la guía */
+  --bs-body-line-height: 1.65;
+  --bs-border-color: var(--nn-linea);
+  --bs-link-color: var(--nn-verde);
+  --bs-link-color-rgb: 31, 111, 92;
+  --bs-link-hover-color: var(--nn-verde-oscuro);
+  --bs-link-hover-color-rgb: 23, 86, 74;
+  --bs-secondary-color: var(--nn-gris);
+  --bs-heading-color: var(--nn-tinta);
+}
+
+
+/* ---------- 2. Tipografía ---------- */
+
+/* Títulos en peso 700 y con el espaciado algo más cerrado, como en la guía */
+h1, h2, h3, h4 {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* H1 fluido: 36 px en móvil hasta 60 px en escritorio (clamp de la guía) */
+h1 {
+  font-size: clamp(2.25rem, 6vw, 3.75rem);
+  line-height: 1.1;
+}
+
+/* H2 fluido: de 24 a 32 px */
+h2 {
+  font-size: clamp(1.5rem, 3.5vw, 2rem);
+}
+
+/* Texto secundario en gris de la guía (contraste 5,4:1 sobre papel, AA) */
+.text-muted-nn {
+  color: var(--nn-gris);
+}
+
+/* Antetítulo pequeño en mayúsculas encima de los H1 */
+.eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--nn-gris);
+  font-weight: 600;
+}
+
+/* Guiño retro de la guía: fuente monoespaciada en mayúsculas, solo para detalles */
+.retro {
+  font-family: "Courier New", ui-monospace, monospace;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Limita el ancho de un párrafo para que se lea cómodo */
+.texto-estrecho {
+  max-width: 60ch;
+}
+
+
+/* ---------- 3. Accesibilidad ---------- */
+
+/* Foco siempre visible con anillo verde de 3 px (Definition of Done: teclado) */
+:focus-visible {
+  outline: 3px solid var(--nn-verde);
+  outline-offset: 2px;
+}
+
+/* Enlace "Saltar al contenido": fuera de la pantalla hasta que recibe el foco */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  z-index: 2000;
+  background: var(--nn-tinta);
+  color: #fff;
+  padding: 0.75rem 1rem;
+}
+
+/* Al tabular, el enlace aparece arriba a la izquierda */
+.skip-link:focus {
+  left: 0;
+  color: #fff;
+}
+
+
+/* ---------- 4. Navbar ---------- */
+
+/* Fondo papel semitransparente con desenfoque y línea inferior de 1 px */
+.navbar-nn {
+  background: rgba(250, 250, 248, 0.92);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--nn-linea);
+}
+
+/* Nombre de la marca en negrita y con espaciado amplio, como el logo */
+.navbar-nn .navbar-brand {
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--nn-tinta);
+}
+
+/* Enlaces del menú en tinta */
+.navbar-nn .nav-link {
+  color: var(--nn-tinta);
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+}
+
+/* Hover de los enlaces en verde de acento */
+.navbar-nn .nav-link:hover {
+  color: var(--nn-verde);
+}
+
+/* Página actual: verde y subrayado inferior de 2 px */
+.navbar-nn .nav-link.active {
+  color: var(--nn-verde);
+  box-shadow: inset 0 -2px 0 var(--nn-verde);
+}
+
+/* Botón hamburguesa con el borde de la guía */
+.navbar-nn .navbar-toggler {
+  border-color: var(--nn-linea);
+}
+
+/* Foco del botón hamburguesa con el anillo verde en lugar del azul de Bootstrap */
+.navbar-nn .navbar-toggler:focus {
+  box-shadow: 0 0 0 3px rgba(31, 111, 92, 0.35);
+}
+
+/* Tamaño fijo del logo de la navbar */
+.logo-nn {
+  width: 32px;
+  height: 32px;
+}
+
+
+/* ---------- 5. Botones (sección 3 de la guía) ---------- */
+
+/* Base común: radio 8 px, borde 1 px, texto en 600 y transición suave */
+.btn-nn,
+.btn-nn-outline,
+.btn-nn-verde {
+  font-weight: 600;
+  border-radius: 0.5rem;
+  padding: 0.65rem 1.25rem;
+  border: 1px solid var(--nn-tinta);
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+/* Principal: fondo tinta */
+.btn-nn {
+  background: var(--nn-tinta);
+  color: #fff;
+}
+
+/* Principal en hover/foco: pasa a verde */
+.btn-nn:hover,
+.btn-nn:focus-visible {
+  background: var(--nn-verde);
+  border-color: var(--nn-verde);
+  color: #fff;
+}
+
+/* Secundario: solo contorno */
+.btn-nn-outline {
+  background: transparent;
+  color: var(--nn-tinta);
+}
+
+/* Secundario en hover/foco: se rellena de tinta */
+.btn-nn-outline:hover,
+.btn-nn-outline:focus-visible {
+  background: var(--nn-tinta);
+  color: #fff;
+}
+
+/* Acento: fondo verde, para reservar plaza y alta de socio */
+.btn-nn-verde {
+  background: var(--nn-verde);
+  border-color: var(--nn-verde);
+  color: #fff;
+}
+
+/* Acento en hover/foco: verde oscuro */
+.btn-nn-verde:hover,
+.btn-nn-verde:focus-visible {
+  background: var(--nn-verde-oscuro);
+  border-color: var(--nn-verde-oscuro);
+  color: #fff;
+}
+
+
+/* ---------- 6. Inicio ---------- */
+
+/* Hero con mucho aire arriba y abajo (de 48 a 112 px según pantalla) */
+.hero {
+  padding: clamp(3rem, 10vw, 7rem) 0;
+}
+
+/* Logo grande con giro muy lento (movimiento de la guía) */
+.hero-logo {
+  width: clamp(96px, 18vw, 160px);
+  height: auto;
+  animation: giro 60s linear infinite;
+}
+
+/* Animación del giro del logo */
+@keyframes giro {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Cinta retro bajo el hero: franja gris cálido con el lema */
+.cinta {
+  background: var(--nn-calido);
+  border-top: 1px solid var(--nn-linea);
+  border-bottom: 1px solid var(--nn-linea);
+  color: var(--nn-gris);
+  font-size: 0.8rem;
+  text-align: center;
+  padding: 0.85rem 1rem;
+}
+
+/* Bloque destacado de "Proponer una charla" con borde fino y radio de 12 px */
+.cta-nn {
+  border: 1px solid var(--nn-linea);
+  border-radius: 0.75rem;
+  background: #fff;
+  padding: clamp(2rem, 6vw, 3.5rem) 1.5rem;
+}
+
+
+/* ---------- 7. Secciones e imágenes ---------- */
+
+/* Espaciado vertical de las secciones (de 40 a 80 px) */
+.seccion {
+  padding: clamp(2.5rem, 7vw, 5rem) 0;
+}
+
+/* Secciones alternas en gris cálido para separar bloques sin sombras */
+.seccion-alt {
+  background: var(--nn-calido);
+}
+
+/* Fotos de contenido: esquinas de 12 px, borde de 1 px en tono línea (guía, sección 6)
+   y proporción 4:3 fija para que las dos fotos de Inicio midan lo mismo */
+.foto-nn {
+  border-radius: 0.75rem;
+  border: 1px solid var(--nn-linea);
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+/* Retrato de ponente: círculo de 120 px que recorta la foto sin deformarla */
+.foto-ponente {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--nn-linea);
+}
+
+
+/* ---------- 8. Cards ---------- */
+
+/* Card de Bootstrap con fondo blanco, borde de la guía, radio 12 px y misma altura en la fila */
+.card-nn {
+  background: #fff;
+  border: 1px solid var(--nn-linea);
+  border-radius: 0.75rem;
+  height: 100%;
+}
+
+/* Más relleno interior que el de Bootstrap */
+.card-nn .card-body {
+  padding: 1.5rem;
+}
+
+/* La imagen superior respeta el radio de la card */
+.card-nn .card-img-top {
+  border-top-left-radius: calc(0.75rem - 1px);
+  border-top-right-radius: calc(0.75rem - 1px);
+  height: auto;
+}
+
+/* Iconos grandes de las cards de actividades y ventajas, en verde */
+.icono-nn {
+  font-size: 2rem;
+  color: var(--nn-verde);
+}
+
+/* Lista de datos con icono (fecha, hora, lugar…): icono en verde y separación */
+.datos-evento li {
+  display: flex;
+  gap: 0.6rem;
+  margin-bottom: 0.4rem;
+}
+
+/* Iconos de esas listas en verde */
+.datos-evento .bi {
+  color: var(--nn-verde);
+}
+
+/* Etiqueta (badge) tipo píldora con contorno, como los filtros de la guía */
+.badge-nn {
+  background: transparent;
+  color: var(--nn-gris);
+  border: 1px solid var(--nn-linea);
+  font-weight: 500;
+  border-radius: 999px;
+  padding: 0.35em 0.8em;
+}
+
+/* Etiqueta activa (tipo de evento): verde sobre verde suave */
+.badge-nn.activo {
+  color: var(--nn-verde);
+  border-color: var(--nn-verde);
+  background: var(--nn-verde-suave);
+}
+
+
+/* ---------- 9. Plazas y cuenta atrás ---------- */
+
+/* Barra de plazas: el componente progress de Bootstrap, más fina y con fondo línea */
+.progress-nn {
+  height: 6px;
+  background: var(--nn-linea);
+}
+
+/* Relleno de la barra en tinta */
+.progress-nn .progress-bar {
+  background: var(--nn-tinta);
+}
+
+/* Anchos que Bootstrap no trae (solo tiene w-25, w-50, w-75 y w-100) */
+.w-20 { width: 20%; } /* barra de plazas al 20 % */
+.w-40 { width: 40%; } /* barra de plazas al 40 % */
+.w-55 { width: 55%; } /* barra de plazas al 55 % */
+
+/* Cuenta atrás: cajas en fila */
+.cuenta {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Cada caja de la cuenta atrás */
+.cuenta > div {
+  border: 1px solid var(--nn-linea);
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  text-align: center;
+  min-width: 4rem;
+  background: #fff;
+}
+
+/* Número de la cuenta atrás */
+.cuenta strong {
+  display: block;
+  font-size: 1.5rem;
+  line-height: 1.1;
+}
+
+/* Unidad (días, horas, min) */
+.cuenta small {
+  color: var(--nn-gris);
+  font-size: 0.75rem;
+}
+
+
+/* ---------- 10. Filtros de eventos ---------- */
+
+/* Botón de filtro tipo píldora */
+.filtro {
+  border: 1px solid var(--nn-linea);
+  background: transparent;
+  color: var(--nn-tinta);
+  border-radius: 999px;
+  padding: 0.35rem 1rem;
+  font-size: 0.9rem;
+}
+
+/* Filtro activo: verde sobre verde suave (aria-pressed lo pone el JS) */
+.filtro[aria-pressed="true"] {
+  background: var(--nn-verde-suave);
+  border-color: var(--nn-verde);
+  color: var(--nn-verde);
+}
+
+
+/* ---------- 11. Tablas ---------- */
+
+/* Rayas y hover de la tabla con los grises cálidos de la guía en lugar de los de Bootstrap */
+.card-nn .table {
+  --bs-table-striped-bg: var(--nn-papel);
+  --bs-table-hover-bg: var(--nn-verde-suave);
+}
+
+/* Cabecera de la tabla en gris pequeño y mayúsculas */
+.card-nn .table thead th {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--nn-gris);
+}
+
+/* Texto de la caption en gris de la guía */
+.card-nn caption {
+  color: var(--nn-gris);
+}
+
+
+/* ---------- 12. Formularios (sección 4 de la guía) ---------- */
+
+/* Etiqueta siempre visible, en 600 */
+.form-label {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* Campos con borde de 1 px en tono línea y radio de 8 px */
+.form-control,
+.form-select {
+  border-color: var(--nn-linea);
+  border-radius: 0.5rem;
+  padding: 0.65rem 0.85rem;
+}
+
+/* Foco de los campos en verde en lugar del azul de Bootstrap */
+.form-control:focus,
+.form-select:focus,
+.form-check-input:focus {
+  border-color: var(--nn-verde);
+  box-shadow: 0 0 0 3px rgba(31, 111, 92, 0.25);
+}
+
+/* Casillas y radios marcados en verde */
+.form-check-input:checked {
+  background-color: var(--nn-verde);
+  border-color: var(--nn-verde);
+}
+
+/* Mensaje de confirmación tras enviar: verde suave con borde verde */
+.aviso-ok {
+  border: 1px solid var(--nn-verde);
+  background: var(--nn-verde-suave);
+  color: var(--nn-verde-oscuro);
+  border-radius: 0.5rem;
+  padding: 0.85rem 1rem;
+}
+
+/* Botón-enlace que abre el modal de privacidad, en el verde de los enlaces */
+.btn-link {
+  color: var(--nn-verde);
+}
+
+
+/* ---------- 13. Carousel y acordeón ---------- */
+
+/* Carousel con borde y radio de 12 px; recorta las fotos a esas esquinas */
+.carousel-nn {
+  border: 1px solid var(--nn-linea);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  background: #fff;
+}
+
+/* Pie de cada diapositiva bajo la foto (no encima) para asegurar el contraste del texto */
+.carousel-caption-nn {
+  padding: 1.25rem 1.5rem 2.75rem;
+}
+
+/* Indicadores del carousel en tinta, porque quedan sobre el pie blanco */
+.carousel-nn .carousel-indicators [data-bs-target] {
+  background-color: var(--nn-tinta);
+}
+
+/* Flechas del carousel sobre un círculo oscuro para que se vean sobre cualquier foto */
+.carousel-nn .carousel-control-prev-icon,
+.carousel-nn .carousel-control-next-icon {
+  background-color: rgba(23, 23, 26, 0.7);
+  border-radius: 50%;
+  background-size: 55%;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+/* Las flechas ocupan solo la zona de la foto (16:9 = 56,25 % del ancho), no el pie de texto.
+   cqw es el 1 % del ancho del carousel, que se declara como contenedor */
+.carousel-nn {
+  container-type: inline-size;
+}
+
+/* Alto de la zona de las flechas igual al de la foto */
+.carousel-nn .carousel-control-prev,
+.carousel-nn .carousel-control-next {
+  bottom: auto;
+  height: 56.25cqw;
+}
+
+/* Acordeón con los colores de la guía: pregunta abierta en verde sobre verde suave */
+.accordion-nn {
+  --bs-accordion-border-color: var(--nn-linea);
+  --bs-accordion-active-color: var(--nn-verde-oscuro);
+  --bs-accordion-active-bg: var(--nn-verde-suave);
+  --bs-accordion-btn-focus-box-shadow: 0 0 0 3px rgba(31, 111, 92, 0.35);
+}
+
+/* Preguntas del acordeón en negrita */
+.accordion-nn .accordion-button {
+  font-weight: 600;
+}
+
+
+/* ---------- 14. Footer ---------- */
+
+/* Footer en tinta con texto claro (contraste alto) */
+.footer-nn {
+  background: var(--nn-tinta);
+  color: #E9E9EA;
+  padding: 3rem 0 1.5rem;
+}
+
+/* Enlaces del footer en blanco y sin subrayado */
+.footer-nn a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Hover/foco de enlaces del footer: verde claro y subrayado */
+.footer-nn a:hover,
+.footer-nn a:focus-visible {
+  color: #7FD1BB;
+  text-decoration: underline;
+}
+
+/* Anillo de foco claro en el footer, porque el verde no se ve sobre fondo oscuro */
+.footer-nn :focus-visible {
+  outline-color: #7FD1BB;
+}
+
+/* Texto secundario del footer (contraste 9:1 sobre tinta) */
+.footer-nn .text-footer {
+  color: #B9B9BF;
+}
+
+/* Títulos de columna del footer: pequeños, mayúsculas y espaciados */
+.titulo-footer {
+  color: #fff;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.75rem;
+}
+
+/* Separador del footer más oscuro y opaco */
+.footer-nn hr {
+  border-color: #34343A;
+  opacity: 1;
+}
+
+/* Redes sociales: botones redondos de 40 px con el icono centrado */
+.redes a {
+  display: inline-flex;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #4A4A52;
+  border-radius: 50%;
+  font-size: 1.1rem;
+}
+
+
+/* ---------- 15. Movimiento reducido ---------- */
+
+/* Si la persona pide menos movimiento en su sistema, se quitan giro y transiciones */
+@media (prefers-reduced-motion: reduce) {
+  .hero-logo {
+    animation: none;
+  }
+
+  * {
+    transition: none !important;
+  }
+}

@@ -1,28 +1,39 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <!-- Metadatos: codificación, adaptación a móvil, título y descripción para buscadores -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Únete · Nodo Norte</title>
-  <meta name="description" content="Hazte socio de Nodo Norte: ventajas, cuota y formulario de alta.">
+  <meta name="description" content="Hazte socio de Nodo Norte o propón una charla: ventajas, cuota voluntaria, preguntas frecuentes y formularios.">
   <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <!-- Bootstrap 5.3 y Bootstrap Icons desde el CDN oficial (jsDelivr) -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link href="css/styles.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+  <!-- Tipografía Inter de Google Fonts, definida en la guía de estilos -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <!-- CSS propio: solo lo que Bootstrap no cubre -->
+  <link href="css/estilos.css" rel="stylesheet">
 </head>
 <body>
+  <!-- Enlace oculto que aparece al pulsar Tab: permite saltar la navegación con teclado -->
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <!-- CABECERA: navbar de Bootstrap, horizontal en escritorio y desplegable en móvil -->
   <header>
     <nav class="navbar navbar-expand-lg navbar-nn sticky-top" aria-label="Navegación principal">
       <div class="container">
+        <!-- Marca: logo y nombre, enlaza a Inicio -->
         <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
           <img src="img/logo.svg" alt="" class="logo-nn" width="32" height="32">
           NODO NORTE
         </a>
+        <!-- Botón hamburguesa para móvil -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
                 aria-controls="menu" aria-expanded="false" aria-label="Abrir menú de navegación">
           <span class="navbar-toggler-icon"></span>
         </button>
+        <!-- Enlaces del menú; Únete es la página actual -->
         <div class="collapse navbar-collapse" id="menu">
           <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
             <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
@@ -36,130 +47,325 @@
   </header>
 
   <main id="contenido">
+
+    <!-- CABECERA DE PÁGINA: título y accesos directos a las tres formas de participar -->
     <section class="seccion pb-0" aria-labelledby="titulo-unete">
       <div class="container">
-        <p class="eyebrow mb-2">Socios</p>
+        <p class="eyebrow mb-2">Participa</p>
         <h1 id="titulo-unete">Únete a Nodo Norte</h1>
-        <p class="lead text-muted-nn mt-3">Hacerse socio es apoyar a la comunidad y asegurarte sitio en los talleres.</p>
-      </div>
-    </section>
-
-    <section class="seccion" aria-labelledby="titulo-ventajas">
-      <div class="container">
-        <h2 id="titulo-ventajas" class="mb-4">Ventajas de ser socio</h2>
-        <div class="row g-4">
-          <div class="col-md-4"><div class="card-nn"><div class="card-body">
-            <h3 class="h5">Plaza asegurada</h3>
-            <p class="text-muted-nn mb-0">Los socios tienen plaza reservada en los talleres hasta una fecha y hora límite. Si no la usas, se libera para otras personas.</p>
-          </div></div></div>
-          <div class="col-md-4"><div class="card-nn"><div class="card-body">
-            <h3 class="h5">Cuota voluntaria</h3>
-            <p class="text-muted-nn mb-0">Propuesta: 10 € al año, voluntaria. Se puede pagar por transferencia o PayPal. <em>(Por confirmar con el cliente.)</em></p>
-          </div></div></div>
-          <div class="col-md-4"><div class="card-nn"><div class="card-body">
-            <h3 class="h5">Comunidad</h3>
-            <p class="text-muted-nn mb-0">Formas parte de un grupo cercano, sin jerga innecesaria, que aprende software libre junto.</p>
-          </div></div></div>
+        <p class="lead text-muted-nn mt-3">Apúntate a un evento, hazte socio o anímate a dar una charla. Elige cómo quieres participar.</p>
+        <div class="d-flex flex-wrap gap-2 mt-4">
+          <a class="btn btn-nn-outline" href="eventos.html#inscripcion"><i class="bi bi-calendar-event me-2" aria-hidden="true"></i>Apuntarme a un evento</a>
+          <a class="btn btn-nn-outline" href="#alta"><i class="bi bi-person-plus me-2" aria-hidden="true"></i>Hacerme socio</a>
+          <a class="btn btn-nn-outline" href="#proponer"><i class="bi bi-lightbulb me-2" aria-hidden="true"></i>Proponer una charla</a>
         </div>
       </div>
     </section>
 
-    <section class="seccion seccion-alt" id="alta" aria-labelledby="titulo-alta">
+    <!-- VENTAJAS: tres cards con icono. 1 / 2 / 3 columnas según pantalla -->
+    <section class="seccion" aria-labelledby="titulo-ventajas">
+      <div class="container">
+        <h2 id="titulo-ventajas" class="mb-4">Ventajas de ser socio</h2>
+        <div class="row g-4">
+          <div class="col-12 col-md-6 col-lg-4">
+            <article class="card card-nn">
+              <div class="card-body">
+                <i class="bi bi-bookmark-check icono-nn" aria-hidden="true"></i>
+                <h3 class="h5 mt-3">Plaza asegurada</h3>
+                <p class="text-muted-nn mb-0">Tienes plaza reservada en los talleres hasta 48 horas antes. Si no la confirmas, se libera para otras personas.</p>
+              </div>
+            </article>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4">
+            <article class="card card-nn">
+              <div class="card-body">
+                <i class="bi bi-piggy-bank icono-nn" aria-hidden="true"></i>
+                <h3 class="h5 mt-3">Cuota voluntaria</h3>
+                <p class="text-muted-nn mb-0">10 € al año, voluntarios. Se paga por transferencia o PayPal y sirve para material, sala y merchandising.</p>
+              </div>
+            </article>
+          </div>
+          <div class="col-12 col-md-12 col-lg-4">
+            <article class="card card-nn">
+              <div class="card-body">
+                <i class="bi bi-people icono-nn" aria-hidden="true"></i>
+                <h3 class="h5 mt-3">Comunidad</h3>
+                <p class="text-muted-nn mb-0">Formas parte de un grupo cercano, sin jerga innecesaria, que aprende software libre junto y decide la programación.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CUOTAS: tabla comparativa con clases de Bootstrap (striped, hover, responsive) -->
+    <section class="seccion seccion-alt" aria-labelledby="titulo-cuotas">
+      <div class="container">
+        <h2 id="titulo-cuotas" class="mb-4">Participante o socio</h2>
+        <div class="table-responsive card card-nn">
+          <table class="table table-striped table-hover align-middle mb-0">
+            <caption class="px-3">Todas las charlas son gratuitas y abiertas. La cuota de socio es voluntaria.</caption>
+            <thead>
+              <tr>
+                <th scope="col">Qué incluye</th>
+                <th scope="col">Participante</th>
+                <th scope="col">Socio</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Precio</th><td>Gratis</td><td>10 € al año</td></tr>
+              <tr><th scope="row">Charlas mensuales</th><td><i class="bi bi-check-lg" aria-hidden="true"></i> Sí</td><td><i class="bi bi-check-lg" aria-hidden="true"></i> Sí</td></tr>
+              <tr><th scope="row">Plaza reservada en talleres</th><td><i class="bi bi-x-lg" aria-hidden="true"></i> No, por orden de inscripción</td><td><i class="bi bi-check-lg" aria-hidden="true"></i> Sí, hasta 48 h antes</td></tr>
+              <tr><th scope="row">Votar la programación</th><td><i class="bi bi-x-lg" aria-hidden="true"></i> No</td><td><i class="bi bi-check-lg" aria-hidden="true"></i> Sí</td></tr>
+              <tr><th scope="row">Merchandising de la comunidad</th><td>En hackatones</td><td>Kit de bienvenida</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ALTA DE SOCIO: formulario con validación de Bootstrap; el enlace de privacidad abre un modal -->
+    <section class="seccion" id="alta" aria-labelledby="titulo-alta">
       <div class="container">
         <div class="row justify-content-center">
-          <div class="col-lg-8">
+          <div class="col-12 col-lg-8">
             <h2 id="titulo-alta">Alta de socio</h2>
-            <form class="needs-validation card-nn mt-3" novalidate>
+            <p class="text-muted-nn">Después del alta te escribimos con los datos para pagar la cuota.</p>
+            <form class="needs-validation card card-nn mt-3" action="#" method="post" novalidate>
               <div class="card-body">
                 <div class="row g-3">
-                  <div class="col-md-6">
+                  <div class="col-12 col-md-6">
                     <label for="s-nombre" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" id="s-nombre" autocomplete="given-name" required>
+                    <input type="text" class="form-control" id="s-nombre" name="nombre" autocomplete="given-name" required>
                     <div class="invalid-feedback">Escribe tu nombre.</div>
                   </div>
-                  <div class="col-md-6">
+                  <div class="col-12 col-md-6">
                     <label for="s-apellidos" class="form-label">Apellidos</label>
-                    <input type="text" class="form-control" id="s-apellidos" autocomplete="family-name" required>
+                    <input type="text" class="form-control" id="s-apellidos" name="apellidos" autocomplete="family-name" required>
                     <div class="invalid-feedback">Escribe tus apellidos.</div>
                   </div>
                   <div class="col-12">
                     <label for="s-correo" class="form-label">Correo</label>
-                    <input type="email" class="form-control" id="s-correo" placeholder="tu@correo.es" autocomplete="email" required>
+                    <input type="email" class="form-control" id="s-correo" name="correo" placeholder="tu@correo.es" autocomplete="email" required>
                     <div class="invalid-feedback">Escribe un correo válido.</div>
                   </div>
-                  <div class="col-md-6">
+                  <div class="col-12 col-md-6">
                     <label for="s-edad" class="form-label">Edad</label>
-                    <input type="number" class="form-control" id="s-edad" min="16" max="99" required>
+                    <input type="number" class="form-control" id="s-edad" name="edad" min="16" max="99" required>
                     <div class="invalid-feedback">Indica tu edad (mínimo 16).</div>
                   </div>
-                  <div class="col-md-6">
+                  <div class="col-12 col-md-6">
                     <label for="s-nacimiento" class="form-label">Fecha de nacimiento</label>
-                    <input type="date" class="form-control" id="s-nacimiento" autocomplete="bday" required>
-                    <div class="invalid-feedback">Indica tu fecha de nacimiento.</div>
+                    <input type="date" class="form-control" id="s-nacimiento" name="nacimiento" autocomplete="bday" required>
+                    <div class="invalid-feedback">Indica tu fecha de nacimiento (mínimo 16 años).</div>
                   </div>
                   <div class="col-12">
                     <label for="s-pago" class="form-label">Forma de pago de la cuota</label>
-                    <select class="form-select" id="s-pago" required>
+                    <select class="form-select" id="s-pago" name="pago" required>
                       <option value="" selected disabled>Elige una opción</option>
-                      <option>Transferencia</option>
-                      <option>PayPal</option>
+                      <option value="transferencia">Transferencia</option>
+                      <option value="paypal">PayPal</option>
                     </select>
                     <div class="invalid-feedback">Elige una forma de pago.</div>
                   </div>
                   <div class="col-12">
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="s-acepto" required>
+                      <input class="form-check-input" type="checkbox" id="s-acepto" name="acepto" required>
                       <label class="form-check-label" for="s-acepto">He leído y acepto la política de privacidad</label>
                       <div class="invalid-feedback">Debes aceptar para continuar.</div>
                     </div>
+                    <!-- Abre el modal con la política (fuera del label porque un botón no puede ir dentro) -->
+                    <button type="button" class="btn btn-link p-0 small" data-bs-toggle="modal" data-bs-target="#modal-privacidad"><i class="bi bi-shield-lock me-1" aria-hidden="true"></i>Leer la política de privacidad</button>
                   </div>
                 </div>
                 <button type="submit" class="btn btn-nn-verde mt-4">Hacerme socio</button>
-                <div class="aviso-ok mt-3" role="status" hidden>¡Hecho! Te escribiremos al correo con los siguientes pasos.</div>
+                <!-- Mensaje de confirmación: el JS lo muestra cuando el formulario es válido -->
+                <div class="aviso-ok mt-3" role="status" hidden><i class="bi bi-check-circle me-2" aria-hidden="true"></i>¡Hecho! Te escribiremos al correo con los siguientes pasos.</div>
               </div>
             </form>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- PROPONER UNA CHARLA: formulario con campos de texto, correo, select, radio y textarea -->
+    <section class="seccion seccion-alt" id="proponer" aria-labelledby="titulo-proponer">
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-12 col-lg-5">
+            <h2 id="titulo-proponer">Proponer una charla</h2>
+            <p class="text-muted-nn">No hace falta ser experta ni experto. Cuéntanos la idea y te ayudamos a prepararla: revisamos contigo las diapositivas y ensayamos antes si quieres.</p>
+            <ul class="list-unstyled datos-evento">
+              <li><i class="bi bi-clock" aria-hidden="true"></i> Charlas de 20 o 45 minutos</li>
+              <li><i class="bi bi-chat-dots" aria-hidden="true"></i> Te respondemos en menos de una semana</li>
+              <li><i class="bi bi-gift" aria-hidden="true"></i> Quien da una charla se lleva merchandising de la comunidad</li>
+            </ul>
+          </div>
+          <div class="col-12 col-lg-7">
+            <form class="needs-validation card card-nn" action="#" method="post" novalidate>
+              <div class="card-body">
+                <div class="row g-3">
+                  <div class="col-12 col-md-6">
+                    <label for="p-nombre" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="p-nombre" name="nombre" autocomplete="name" required>
+                    <div class="invalid-feedback">Escribe tu nombre.</div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <label for="p-correo" class="form-label">Correo</label>
+                    <input type="email" class="form-control" id="p-correo" name="correo" placeholder="tu@correo.es" autocomplete="email" required>
+                    <div class="invalid-feedback">Escribe un correo válido.</div>
+                  </div>
+                  <div class="col-12">
+                    <label for="p-titulo" class="form-label">Título de la charla</label>
+                    <input type="text" class="form-control" id="p-titulo" name="titulo" minlength="5" required>
+                    <div class="invalid-feedback">Escribe un título de al menos 5 caracteres.</div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <label for="p-nivel" class="form-label">Nivel</label>
+                    <select class="form-select" id="p-nivel" name="nivel" required>
+                      <option value="" selected disabled>Elige un nivel</option>
+                      <option value="1">Nivel 1 · para empezar desde cero</option>
+                      <option value="2">Nivel 2 · con algo de base</option>
+                    </select>
+                    <div class="invalid-feedback">Elige un nivel.</div>
+                  </div>
+                  <!-- Grupo de radios: fieldset + legend para que se lea como una sola pregunta -->
+                  <fieldset class="col-12 col-md-6">
+                    <legend class="form-label fs-6">Duración</legend>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="duracion" id="p-20" value="20" required>
+                      <label class="form-check-label" for="p-20">20 min</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="duracion" id="p-45" value="45" required>
+                      <label class="form-check-label" for="p-45">45 min</label>
+                    </div>
+                  </fieldset>
+                  <div class="col-12">
+                    <label for="p-resumen" class="form-label">De qué va</label>
+                    <textarea class="form-control" id="p-resumen" name="resumen" rows="4" minlength="30" required></textarea>
+                    <div class="form-text">Dos o tres frases bastan.</div>
+                    <div class="invalid-feedback">Cuéntanos la idea en al menos 30 caracteres.</div>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-nn mt-4">Enviar propuesta</button>
+                <!-- Mensaje de confirmación: el JS lo muestra cuando el formulario es válido -->
+                <div class="aviso-ok mt-3" role="status" hidden><i class="bi bi-check-circle me-2" aria-hidden="true"></i>¡Gracias! Te escribimos en unos días para hablar de tu charla.</div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PREGUNTAS FRECUENTES: acordeón de Bootstrap (solo un panel abierto a la vez) -->
+    <section class="seccion" aria-labelledby="titulo-faq">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12 col-lg-8">
+            <h2 id="titulo-faq" class="mb-4">Preguntas frecuentes</h2>
+            <div class="accordion accordion-nn" id="faq">
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq-1" aria-expanded="true" aria-controls="faq-1">¿Tengo que ser socio para ir a las charlas?</button>
+                </h3>
+                <div id="faq-1" class="accordion-collapse collapse show" data-bs-parent="#faq">
+                  <div class="accordion-body">No. Las charlas son gratuitas y abiertas a cualquier persona. Ser socio solo te asegura plaza en los talleres, que tienen aforo limitado.</div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-2" aria-expanded="false" aria-controls="faq-2">¿Qué pasa si reservo plaza y no puedo ir?</button>
+                </h3>
+                <div id="faq-2" class="accordion-collapse collapse" data-bs-parent="#faq">
+                  <div class="accordion-body">Si eres socio, tu plaza queda guardada hasta 48 horas antes del taller. Si no la confirmas, se libera para la siguiente persona de la lista.</div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-3" aria-expanded="false" aria-controls="faq-3">¿Necesito saber programar?</button>
+                </h3>
+                <div id="faq-3" class="accordion-collapse collapse" data-bs-parent="#faq">
+                  <div class="accordion-body">No. Las actividades de nivel 1 empiezan desde cero. En cada evento indicamos el nivel para que elijas con tranquilidad.</div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-4" aria-expanded="false" aria-controls="faq-4">¿Puedo hacerme socio si tengo 16 o 17 años?</button>
+                </h3>
+                <div id="faq-4" class="accordion-collapse collapse" data-bs-parent="#faq">
+                  <div class="accordion-body">Sí, desde los 16 años. Solo te pediremos que una persona adulta responsable firme la autorización que te enviamos por correo.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
+  <!-- MODAL: política de privacidad resumida. Se abre desde el formulario de alta y se cierra con Esc -->
+  <div class="modal fade" id="modal-privacidad" tabindex="-1" aria-labelledby="titulo-modal-privacidad" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title h5" id="titulo-modal-privacidad">Política de privacidad</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <p><strong>Quién trata tus datos:</strong> la asociación Nodo Norte, comunidad sin ánimo de lucro de A Coruña.</p>
+          <p><strong>Para qué:</strong> gestionar tu alta como socio, avisarte de los eventos y enviarte los datos de pago de la cuota.</p>
+          <p><strong>Qué no hacemos:</strong> no vendemos ni cedemos tus datos a nadie, tampoco a patrocinadores.</p>
+          <p class="mb-0"><strong>Tus derechos:</strong> puedes ver, corregir o borrar tus datos cuando quieras escribiendo a <a href="mailto:hola@nodonorte.example">hola@nodonorte.example</a>.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-nn" data-bs-dismiss="modal">Entendido</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PIE: tres columnas (una en móvil) con descripción, enlaces y contacto/redes -->
   <footer class="footer-nn">
     <div class="container">
       <div class="row gy-4">
-        <div class="col-md-5">
+        <!-- Columna 1: marca y descripción de la comunidad -->
+        <div class="col-12 col-md-5">
           <p class="d-flex align-items-center gap-2 fw-bold mb-2">
             <img src="img/logo.svg" alt="" width="28" height="28"> NODO NORTE
           </p>
-          <p class="text-footer mb-0">Comunidad tecnológica de A Coruña. Software libre, charlas y talleres, con calma.</p>
+          <p class="text-footer mb-0">Comunidad tecnológica sin ánimo de lucro de A Coruña. Software libre, charlas y talleres, con calma.</p>
         </div>
-        <div class="col-6 col-md-3">
-          <h2 class="h6 text-uppercase" style="letter-spacing:.1em">Web</h2>
+        <!-- Columna 2: navegación del sitio -->
+        <div class="col-12 col-sm-6 col-md-3">
+          <h2 class="titulo-footer">Web</h2>
           <ul class="list-unstyled mb-0">
             <li><a href="index.html">Inicio</a></li>
             <li><a href="eventos.html">Eventos</a></li>
             <li><a href="unete.html">Únete</a></li>
+            <li><a href="unete.html#proponer">Proponer una charla</a></li>
           </ul>
         </div>
-        <div class="col-6 col-md-4">
-          <h2 class="h6 text-uppercase" style="letter-spacing:.1em">Contacto y redes</h2>
-          <p class="mb-2"><a href="mailto:hola@nodonorte.example">hola@nodonorte.example</a></p>
-          <div class="redes d-flex gap-2" aria-label="Redes sociales">
-            <a href="#" aria-label="Mastodon">Ma</a>
-            <a href="#" aria-label="Bluesky">Bs</a>
-            <a href="#" aria-label="Instagram">Ig</a>
-          </div>
+        <!-- Columna 3: cuándo nos vemos, correo y redes sociales con Bootstrap Icons -->
+        <div class="col-12 col-sm-6 col-md-4">
+          <h2 class="titulo-footer">Contacto</h2>
+          <p class="text-footer mb-2"><i class="bi bi-calendar-week" aria-hidden="true"></i> Primer martes de cada mes, 19:00</p>
+          <p class="mb-3 text-break"><a href="mailto:hola@nodonorte.example"><i class="bi bi-envelope" aria-hidden="true"></i> hola@nodonorte.example</a></p>
+          <ul class="redes list-unstyled d-flex gap-2 mb-0" aria-label="Redes sociales">
+            <li><a href="https://mastodon.social/" aria-label="Mastodon de Nodo Norte"><i class="bi bi-mastodon" aria-hidden="true"></i></a></li>
+            <li><a href="https://bsky.app/" aria-label="Bluesky de Nodo Norte"><i class="bi bi-bluesky" aria-hidden="true"></i></a></li>
+            <li><a href="https://www.instagram.com/" aria-label="Instagram de Nodo Norte"><i class="bi bi-instagram" aria-hidden="true"></i></a></li>
+          </ul>
         </div>
       </div>
       <hr class="my-4">
-      <div class="d-flex flex-column flex-sm-row justify-content-between gap-2 small text-footer">
-        <span>&copy; <span data-year>2026</span> Nodo Norte · Proyecto académico</span>
-        <span><a href="#">Aviso legal</a> · <a href="#">Privacidad</a> · <a href="#">Contacto</a></span>
-      </div>
+      <!-- Línea inferior: copyright (el año lo actualiza el JS) -->
+      <p class="small text-footer mb-0">&copy; <span data-year>2026</span> Nodo Norte · Proyecto académico de DIW · Fotos con licencia libre de Unsplash y Pexels</p>
     </div>
   </footer>
 
+  <!-- JS de Bootstrap (incluye Popper) para navbar, acordeón y modal; después, nuestro script -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="js/main.js"></script>
+  <script src="js/validacion.js"></script>
 </body>
 </html>

@@ -1,28 +1,39 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <!-- Metadatos: codificación, adaptación a móvil, título y descripción para buscadores -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Inicio · Nodo Norte</title>
-  <meta name="description" content="Nodo Norte: comunidad tecnológica de A Coruña. Charlas y talleres sobre software libre.">
+  <meta name="description" content="Nodo Norte: comunidad tecnológica de A Coruña. Charlas, talleres y hackatones sobre software libre el primer martes de cada mes.">
   <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+  <!-- Bootstrap 5.3 y Bootstrap Icons desde el CDN oficial (jsDelivr) -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link href="css/styles.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+  <!-- Tipografía Inter de Google Fonts, definida en la guía de estilos -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <!-- CSS propio: solo lo que Bootstrap no cubre (va después para poder sobrescribir) -->
+  <link href="css/estilos.css" rel="stylesheet">
 </head>
 <body>
+  <!-- Enlace oculto que aparece al pulsar Tab: permite saltar la navegación con teclado -->
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <!-- CABECERA: navbar de Bootstrap, horizontal en escritorio y desplegable en móvil (navbar-expand-lg) -->
   <header>
     <nav class="navbar navbar-expand-lg navbar-nn sticky-top" aria-label="Navegación principal">
       <div class="container">
+        <!-- Marca: logo y nombre, enlaza a Inicio -->
         <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
           <img src="img/logo.svg" alt="" class="logo-nn" width="32" height="32">
           NODO NORTE
         </a>
+        <!-- Botón hamburguesa: abre y cierra el menú en pantallas pequeñas -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
                 aria-controls="menu" aria-expanded="false" aria-label="Abrir menú de navegación">
           <span class="navbar-toggler-icon"></span>
         </button>
+        <!-- Enlaces del menú; la página actual lleva .active y aria-current="page" -->
         <div class="collapse navbar-collapse" id="menu">
           <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
             <li class="nav-item"><a class="nav-link active" href="index.html" aria-current="page">Inicio</a></li>
@@ -36,48 +47,91 @@
   </header>
 
   <main id="contenido">
+
+    <!-- HERO: mensaje principal, llamadas a la acción y logo animado. Dos columnas desde lg -->
     <section class="hero" aria-labelledby="titulo-hero">
       <div class="container">
         <div class="row align-items-center gy-4">
-          <div class="col-lg-7">
+          <div class="col-12 col-lg-7">
             <p class="eyebrow mb-2">Comunidad tecnológica · A Coruña</p>
             <h1 id="titulo-hero">Menos ruido,<br>más comunidad.</h1>
-            <p class="lead text-muted-nn mt-3">Charlas y talleres sobre software libre y tecnología. Si es tu primera vez, cuéntanoslo y te recibimos con calma.</p>
+            <p class="lead text-muted-nn mt-3">Charlas, talleres y hackatones sobre software libre y tecnología. Si es tu primera vez, cuéntanoslo y te recibimos con calma.</p>
             <div class="d-flex flex-wrap gap-2 mt-4">
-              <a class="btn btn-nn" href="eventos.html#inscripcion">Apúntate al próximo evento</a>
+              <a class="btn btn-nn" href="eventos.html#inscripcion"><i class="bi bi-calendar-event me-2" aria-hidden="true"></i>Apúntate al próximo evento</a>
               <a class="btn btn-nn-outline" href="unete.html">Hazte socio</a>
             </div>
           </div>
-          <div class="col-lg-5 text-center">
+          <div class="col-12 col-lg-5 text-center">
             <img class="hero-logo" src="img/logo.svg" alt="Logotipo de Nodo Norte: un nodo central conectado con seis puntos" width="160" height="160">
           </div>
         </div>
       </div>
     </section>
 
+    <!-- CINTA RETRO: franja con el lema en fuente monoespaciada (guiño retro de la guía) -->
+    <div class="cinta retro" aria-hidden="true">Software libre · A Coruña · Primer martes de cada mes · Comunidad abierta</div>
+
+    <!-- PRÓXIMO EVENTO: card de Bootstrap con datos, plazas (progress), cuenta atrás y botón de reserva -->
     <section class="seccion seccion-alt" aria-labelledby="titulo-proximo">
       <div class="container">
         <h2 id="titulo-proximo" class="mb-4">Próximo evento</h2>
-        <div class="card-nn">
+        <article class="card card-nn">
           <div class="card-body">
             <div class="row gy-4 align-items-center">
-              <div class="col-lg-7">
+              <!-- Columna izquierda: etiquetas, título y datos prácticos -->
+              <div class="col-12 col-lg-7">
                 <div class="d-flex gap-2 mb-2">
                   <span class="badge badge-nn activo">Charla</span>
                   <span class="badge badge-nn">Nivel 1</span>
                 </div>
                 <h3 class="h4">Introducción a Linux y software libre</h3>
-                <p class="text-muted-nn mb-3">martes, 1 de diciembre · 19:00 · Sala por confirmar, A Coruña</p>
-                <div class="plazas mb-1" role="img" aria-label="18 plazas libres de 40"><span style="width:55%"></span></div>
-                <p class="small text-muted-nn mb-0">18 plazas libres de 40</p>
+                <ul class="list-unstyled datos-evento mb-3">
+                  <li><i class="bi bi-calendar-event" aria-hidden="true"></i> Martes, 1 de diciembre de 2026</li>
+                  <li><i class="bi bi-clock" aria-hidden="true"></i> 19:00 a 20:30</li>
+                  <li><i class="bi bi-geo-alt" aria-hidden="true"></i> A Coruña · la dirección exacta llega en el correo de confirmación</li>
+                </ul>
+                <!-- Barra de plazas con el componente progress de Bootstrap -->
+                <div class="progress progress-nn mb-1" role="progressbar" aria-label="Plazas ocupadas" aria-valuenow="22" aria-valuemin="0" aria-valuemax="40">
+                  <div class="progress-bar w-55"></div>
+                </div>
+                <p class="small text-muted-nn mb-0"><i class="bi bi-people" aria-hidden="true"></i> Quedan 18 plazas libres de 40</p>
               </div>
-              <div class="col-lg-5">
+              <!-- Columna derecha: cuenta atrás (la rellena js/validacion.js) y acciones -->
+              <div class="col-12 col-lg-5">
                 <div id="cuenta" class="cuenta mb-3" data-fecha="2026-12-01T19:00:00+01:00" role="timer" aria-label="Cuenta atrás hasta el próximo evento">
                   <div><strong data-d>0</strong><small>días</small></div>
                   <div><strong data-h>0</strong><small>horas</small></div>
                   <div><strong data-m>0</strong><small>min</small></div>
                 </div>
-                <a class="btn btn-nn-verde" href="eventos.html#inscripcion">Reservar plaza</a>
+                <div class="d-flex flex-wrap gap-2">
+                  <a class="btn btn-nn-verde" href="eventos.html#inscripcion">Reservar plaza</a>
+                  <!-- Abre el modal con la información práctica del evento -->
+                  <button type="button" class="btn btn-nn-outline" data-bs-toggle="modal" data-bs-target="#modal-evento">Qué necesito llevar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- QUÉ ES NODO NORTE: texto de presentación y dos fotos en rejilla -->
+    <section class="seccion" aria-labelledby="titulo-que-es">
+      <div class="container">
+        <div class="row gy-4 align-items-center">
+          <div class="col-12 col-lg-6">
+            <h2 id="titulo-que-es">¿Qué es Nodo Norte?</h2>
+            <p class="text-muted-nn">Nodo Norte es una comunidad tecnológica sin ánimo de lucro formada por estudiantes y profesionales de A Coruña. Acercamos la tecnología y el software libre con charlas, talleres y encuentros, normalmente el primer martes de cada mes.</p>
+            <p class="text-muted-nn">Hay actividades de iniciación y de otros niveles, pensadas para alumnado de FP y universidad, perfiles junior y cualquier persona con curiosidad.</p>
+            <a class="btn btn-nn-outline" href="unete.html">Cómo hacerse socio</a>
+          </div>
+          <div class="col-12 col-lg-6">
+            <div class="row g-3">
+              <div class="col-12 col-sm-6">
+                <img class="img-fluid foto-nn" src="img/encuentro-comunidad.jpg" alt="Personas de la comunidad charlando en un encuentro con luz natural" width="1600" height="900" loading="lazy">
+              </div>
+              <div class="col-12 col-sm-6">
+                <img class="img-fluid foto-nn" src="img/portatiles-taller.jpg" alt="Manos sobre portátiles durante un taller práctico" width="1200" height="900" loading="lazy">
               </div>
             </div>
           </div>
@@ -85,62 +139,119 @@
       </div>
     </section>
 
-    <section class="seccion" aria-labelledby="titulo-que-es">
+    <!-- QUÉ HACEMOS: tres cards de actividades con icono (una columna en móvil, dos en tablet, tres en escritorio) -->
+    <section class="seccion seccion-alt" aria-labelledby="titulo-actividades">
       <div class="container">
-        <div class="row gy-4 align-items-center">
-          <div class="col-lg-6">
-            <h2 id="titulo-que-es">¿Qué es Nodo Norte?</h2>
-            <p class="text-muted-nn">Nodo Norte es una comunidad tecnológica local que acerca la tecnología y el software libre mediante charlas, talleres y encuentros. Nos juntamos normalmente el primer martes de cada mes, con eventos adicionales.</p>
-            <p class="text-muted-nn">Hay actividades de iniciación y de otros niveles, para estudiantes de FP y universidad, perfiles junior y personas curiosas.</p>
-            <a class="btn btn-nn-outline" href="unete.html">Cómo hacerse socio</a>
+        <h2 id="titulo-actividades" class="mb-4">Qué hacemos</h2>
+        <div class="row g-4">
+          <div class="col-12 col-md-6 col-lg-4">
+            <article class="card card-nn">
+              <div class="card-body">
+                <i class="bi bi-mic icono-nn" aria-hidden="true"></i>
+                <h3 class="h5 mt-3">Charlas</h3>
+                <p class="text-muted-nn mb-0">Una hora para conocer una herramienta o una idea, contada por alguien de la comunidad y con tiempo para preguntas.</p>
+              </div>
+            </article>
           </div>
-          <div class="col-lg-6">
-            <div class="row g-3">
-              <div class="col-6"><div class="placeholder-img">Foto: encuentro con luz natural</div></div>
-              <div class="col-6"><div class="placeholder-img">Foto: portátiles y manos</div></div>
-            </div>
+          <div class="col-12 col-md-6 col-lg-4">
+            <article class="card card-nn">
+              <div class="card-body">
+                <i class="bi bi-laptop icono-nn" aria-hidden="true"></i>
+                <h3 class="h5 mt-3">Talleres</h3>
+                <p class="text-muted-nn mb-0">Trae tu portátil y practica con ayuda. Los socios tienen plaza reservada hasta la fecha límite de cada taller.</p>
+              </div>
+            </article>
           </div>
+          <div class="col-12 col-md-12 col-lg-4">
+            <article class="card card-nn">
+              <div class="card-body">
+                <i class="bi bi-trophy icono-nn" aria-hidden="true"></i>
+                <h3 class="h5 mt-3">Hackatones</h3>
+                <p class="text-muted-nn mb-0">Un día entero construyendo algo útil en equipo. No hace falta experiencia: se aprende haciendo.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LLAMADA A LA ACCIÓN: invita a proponer una charla (enlaza al formulario de Únete) -->
+    <section class="seccion" aria-labelledby="titulo-propon">
+      <div class="container">
+        <div class="cta-nn text-center">
+          <h2 id="titulo-propon">¿Tienes algo que contar?</h2>
+          <p class="text-muted-nn mx-auto texto-estrecho">No hace falta ser experta ni experto. Si has aprendido algo y te apetece compartirlo, te ayudamos a preparar tu primera charla.</p>
+          <a class="btn btn-nn" href="unete.html#proponer"><i class="bi bi-lightbulb me-2" aria-hidden="true"></i>Proponer una charla</a>
         </div>
       </div>
     </section>
   </main>
 
+  <!-- MODAL: información práctica del próximo evento. Se cierra con la X, el botón o la tecla Esc -->
+  <div class="modal fade" id="modal-evento" tabindex="-1" aria-labelledby="titulo-modal-evento" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title h5" id="titulo-modal-evento">Qué necesito para la charla de Linux</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <ul class="list-unstyled datos-evento mb-0">
+            <li><i class="bi bi-laptop" aria-hidden="true"></i> Portátil opcional: si lo traes, te enseñamos a probar Linux desde un USB sin tocar tu sistema.</li>
+            <li><i class="bi bi-usb-drive" aria-hidden="true"></i> Un pendrive de 8 GB o más si quieres llevarte Linux instalado.</li>
+            <li><i class="bi bi-person-check" aria-hidden="true"></i> Ningún conocimiento previo: es una charla de nivel 1.</li>
+            <li><i class="bi bi-universal-access" aria-hidden="true"></i> Si necesitas intérprete de lengua de signos, márcalo al inscribirte.</li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-nn-outline" data-bs-dismiss="modal">Cerrar</button>
+          <a class="btn btn-nn-verde" href="eventos.html#inscripcion">Reservar plaza</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PIE: tres columnas (una en móvil) con descripción, enlaces y contacto/redes -->
   <footer class="footer-nn">
     <div class="container">
       <div class="row gy-4">
-        <div class="col-md-5">
+        <!-- Columna 1: marca y descripción de la comunidad -->
+        <div class="col-12 col-md-5">
           <p class="d-flex align-items-center gap-2 fw-bold mb-2">
             <img src="img/logo.svg" alt="" width="28" height="28"> NODO NORTE
           </p>
-          <p class="text-footer mb-0">Comunidad tecnológica de A Coruña. Software libre, charlas y talleres, con calma.</p>
+          <p class="text-footer mb-0">Comunidad tecnológica sin ánimo de lucro de A Coruña. Software libre, charlas y talleres, con calma.</p>
         </div>
-        <div class="col-6 col-md-3">
-          <h2 class="h6 text-uppercase" style="letter-spacing:.1em">Web</h2>
+        <!-- Columna 2: navegación del sitio -->
+        <div class="col-12 col-sm-6 col-md-3">
+          <h2 class="titulo-footer">Web</h2>
           <ul class="list-unstyled mb-0">
             <li><a href="index.html">Inicio</a></li>
             <li><a href="eventos.html">Eventos</a></li>
             <li><a href="unete.html">Únete</a></li>
+            <li><a href="unete.html#proponer">Proponer una charla</a></li>
           </ul>
         </div>
-        <div class="col-6 col-md-4">
-          <h2 class="h6 text-uppercase" style="letter-spacing:.1em">Contacto y redes</h2>
-          <p class="mb-2"><a href="mailto:hola@nodonorte.example">hola@nodonorte.example</a></p>
-          <div class="redes d-flex gap-2" aria-label="Redes sociales">
-            <a href="#" aria-label="Mastodon">Ma</a>
-            <a href="#" aria-label="Bluesky">Bs</a>
-            <a href="#" aria-label="Instagram">Ig</a>
-          </div>
+        <!-- Columna 3: cuándo nos vemos, correo y redes sociales con Bootstrap Icons -->
+        <div class="col-12 col-sm-6 col-md-4">
+          <h2 class="titulo-footer">Contacto</h2>
+          <p class="text-footer mb-2"><i class="bi bi-calendar-week" aria-hidden="true"></i> Primer martes de cada mes, 19:00</p>
+          <p class="mb-3 text-break"><a href="mailto:hola@nodonorte.example"><i class="bi bi-envelope" aria-hidden="true"></i> hola@nodonorte.example</a></p>
+          <ul class="redes list-unstyled d-flex gap-2 mb-0" aria-label="Redes sociales">
+            <li><a href="https://mastodon.social/" aria-label="Mastodon de Nodo Norte"><i class="bi bi-mastodon" aria-hidden="true"></i></a></li>
+            <li><a href="https://bsky.app/" aria-label="Bluesky de Nodo Norte"><i class="bi bi-bluesky" aria-hidden="true"></i></a></li>
+            <li><a href="https://www.instagram.com/" aria-label="Instagram de Nodo Norte"><i class="bi bi-instagram" aria-hidden="true"></i></a></li>
+          </ul>
         </div>
       </div>
       <hr class="my-4">
-      <div class="d-flex flex-column flex-sm-row justify-content-between gap-2 small text-footer">
-        <span>&copy; <span data-year>2026</span> Nodo Norte · Proyecto académico</span>
-        <span><a href="#">Aviso legal</a> · <a href="#">Privacidad</a> · <a href="#">Contacto</a></span>
-      </div>
+      <!-- Línea inferior: copyright (el año lo actualiza el JS) -->
+      <p class="small text-footer mb-0">&copy; <span data-year>2026</span> Nodo Norte · Proyecto académico de DIW · Fotos con licencia libre de Unsplash y Pexels</p>
     </div>
   </footer>
 
+  <!-- JS de Bootstrap (incluye Popper) para navbar, modal y carousel; después, nuestro script -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="js/main.js"></script>
+  <script src="js/validacion.js"></script>
 </body>
 </html>
