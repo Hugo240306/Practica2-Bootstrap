@@ -1,0 +1,137 @@
+/* ==========================================================
+   Nodo Norte · estilos propios (sobre Bootstrap 5.3 CDN)
+   Paleta y tipografía definidas en la guía de estilos
+   ========================================================== */
+
+:root {
+  --nn-papel: #FAFAF8;
+  --nn-calido: #F2F1ED;
+  --nn-linea: #E4E2DC;
+  --nn-gris: #66666E;
+  --nn-tinta: #17171A;
+  --nn-verde: #1F6F5C;
+  --nn-verde-oscuro: #17564A;
+
+  /* Sobrescribe variables de Bootstrap */
+  --bs-body-font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --bs-body-bg: var(--nn-papel);
+  --bs-body-color: var(--nn-tinta);
+  --bs-body-font-size: 1.0625rem; /* 17 px */
+  --bs-body-line-height: 1.65;
+  --bs-border-color: var(--nn-linea);
+  --bs-link-color: var(--nn-verde);
+  --bs-link-hover-color: var(--nn-verde-oscuro);
+  --bs-secondary-color: var(--nn-gris);
+}
+
+body { background: var(--nn-papel); }
+
+h1, h2, h3, h4 { font-weight: 700; letter-spacing: -0.01em; }
+h1 { font-size: clamp(2.25rem, 6vw, 3.75rem); line-height: 1.1; }
+h2 { font-size: clamp(1.5rem, 3.5vw, 2rem); }
+.text-muted-nn { color: var(--nn-gris); }
+.eyebrow {
+  font-size: .75rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--nn-gris); font-weight: 600;
+}
+.retro { font-family: "Courier New", ui-monospace, monospace; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; }
+
+/* Accesibilidad: foco visible y enlace "saltar al contenido" */
+:focus-visible { outline: 3px solid var(--nn-verde); outline-offset: 2px; }
+.skip-link {
+  position: absolute; left: -999px; top: 0; z-index: 2000;
+  background: var(--nn-tinta); color: #fff; padding: .75rem 1rem;
+}
+.skip-link:focus { left: 0; color: #fff; }
+
+/* Navbar */
+.navbar-nn {
+  background: rgba(250, 250, 248, .92);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--nn-linea);
+}
+.navbar-nn .navbar-brand { font-weight: 800; letter-spacing: .08em; color: var(--nn-tinta); }
+.navbar-nn .nav-link { color: var(--nn-tinta); font-weight: 500; padding: .5rem 1rem; }
+.navbar-nn .nav-link:hover { color: var(--nn-verde); }
+.navbar-nn .nav-link.active { color: var(--nn-verde); box-shadow: inset 0 -2px 0 var(--nn-verde); }
+.navbar-nn .navbar-toggler { border-color: var(--nn-linea); }
+.navbar-nn .navbar-toggler:focus { box-shadow: 0 0 0 3px rgba(31, 111, 92, .35); }
+.logo-nn { width: 32px; height: 32px; }
+
+/* Botones */
+.btn-nn, .btn-nn-outline, .btn-nn-verde {
+  font-weight: 600; border-radius: .5rem; padding: .65rem 1.25rem;
+  border: 1px solid var(--nn-tinta); transition: background-color .2s, color .2s, border-color .2s;
+}
+.btn-nn { background: var(--nn-tinta); color: #fff; }
+.btn-nn:hover, .btn-nn:focus-visible { background: var(--nn-verde); border-color: var(--nn-verde); color: #fff; }
+.btn-nn-outline { background: transparent; color: var(--nn-tinta); }
+.btn-nn-outline:hover { background: var(--nn-tinta); color: #fff; }
+.btn-nn-verde { background: var(--nn-verde); border-color: var(--nn-verde); color: #fff; }
+.btn-nn-verde:hover { background: var(--nn-verde-oscuro); border-color: var(--nn-verde-oscuro); color: #fff; }
+
+/* Hero */
+.hero { padding: clamp(3rem, 10vw, 7rem) 0; position: relative; overflow: hidden; }
+.hero-logo { width: clamp(96px, 18vw, 160px); height: auto; animation: giro 60s linear infinite; }
+@keyframes giro { to { transform: rotate(360deg); } }
+
+/* Tarjetas */
+.card-nn {
+  background: #fff; border: 1px solid var(--nn-linea); border-radius: .75rem;
+  height: 100%;
+}
+.card-nn .card-body { padding: 1.5rem; }
+.badge-nn {
+  background: transparent; color: var(--nn-gris); border: 1px solid var(--nn-linea);
+  font-weight: 500; border-radius: 999px; padding: .35em .8em;
+}
+.badge-nn.activo { color: var(--nn-verde); border-color: var(--nn-verde); background: #E8F2EF; }
+
+/* Filtros */
+.filtro {
+  border: 1px solid var(--nn-linea); background: transparent; color: var(--nn-tinta);
+  border-radius: 999px; padding: .35rem 1rem; font-size: .9rem;
+}
+.filtro[aria-pressed="true"] { background: #E8F2EF; border-color: var(--nn-verde); color: var(--nn-verde); }
+
+/* Barra de plazas */
+.plazas { height: 6px; background: var(--nn-linea); border-radius: 999px; overflow: hidden; }
+.plazas > span { display: block; height: 100%; background: var(--nn-tinta); }
+
+/* Cuenta atrás */
+.cuenta { display: flex; gap: .5rem; }
+.cuenta > div { border: 1px solid var(--nn-linea); border-radius: .5rem; padding: .5rem .75rem; text-align: center; min-width: 4rem; background: #fff; }
+.cuenta strong { display: block; font-size: 1.5rem; line-height: 1.1; }
+.cuenta small { color: var(--nn-gris); font-size: .7rem; }
+
+/* Formularios */
+.form-label { font-weight: 600; font-size: .95rem; }
+.form-control, .form-select { border-color: var(--nn-linea); border-radius: .5rem; padding: .65rem .85rem; }
+.form-control:focus, .form-select:focus { border-color: var(--nn-verde); box-shadow: 0 0 0 3px rgba(31, 111, 92, .25); }
+.form-check-input:checked { background-color: var(--nn-verde); border-color: var(--nn-verde); }
+.aviso-ok { border: 1px solid var(--nn-verde); background: #E8F2EF; color: var(--nn-verde-oscuro); border-radius: .5rem; padding: .85rem 1rem; }
+
+/* Secciones */
+.seccion { padding: clamp(2.5rem, 7vw, 5rem) 0; }
+.seccion-alt { background: var(--nn-calido); }
+.placeholder-img {
+  background: var(--nn-calido); border: 1px dashed var(--nn-linea); border-radius: .75rem;
+  min-height: 220px; display: flex; align-items: center; justify-content: center;
+  color: var(--nn-gris); font-size: .9rem; text-align: center; padding: 1rem;
+}
+
+/* Footer */
+.footer-nn { background: var(--nn-tinta); color: #E9E9EA; padding: 3rem 0 1.5rem; }
+.footer-nn a { color: #fff; text-decoration: none; }
+.footer-nn a:hover { color: #7FD1BB; text-decoration: underline; }
+.footer-nn .text-footer { color: #B9B9BF; }
+.footer-nn hr { border-color: #34343A; opacity: 1; }
+.redes a {
+  display: inline-flex; width: 40px; height: 40px; align-items: center; justify-content: center;
+  border: 1px solid #4A4A52; border-radius: 50%; font-size: .8rem; font-weight: 700;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-logo { animation: none; }
+  * { transition: none !important; }
+}
